@@ -80,7 +80,7 @@ st.set_page_config(layout="wide")
 # Título de la aplicación
 st.title('Aplicación de Predicciones')
 
-st.sidebar.image("streamlit_app/images/growup.png", width=150)
+st.sidebar.image("images/growup.png", width=150)
 
 # Crear una selección en la barra lateral para elegir el modelo
 modelo_seleccionado = st.sidebar.selectbox('Seleccione el modelo de predicción:', 
@@ -88,7 +88,7 @@ modelo_seleccionado = st.sidebar.selectbox('Seleccione el modelo de predicción:
 
 if modelo_seleccionado == 'Inicio':
     # Página de bienvenida
-    st.image("streamlit_app/images/portada.png", width=300)
+    st.image("images/portada.png", width=300)
     st.header('Bienvenido a la Aplicación de Predicciones')
     st.write('Esta aplicación le permite utilizar dos modelos de predicción:')
     st.write('1. **Predicción de Abandono de Cliente**: predice si un cliente abandonará el banco.')
@@ -97,7 +97,7 @@ if modelo_seleccionado == 'Inicio':
 
 elif modelo_seleccionado == 'Predicción de Abandono de Cliente':
     # Cargar el pipeline guardado para el modelo de abandono
-    pipeline_abandono = joblib.load("streamlit_app/models/pipeline_modelo_abandono.pkl")
+    pipeline_abandono = joblib.load("models/pipeline_modelo_abandono.pkl")
     
     st.header('Predicción de Abandono de Cliente')
     
@@ -203,7 +203,7 @@ elif modelo_seleccionado == 'Predicción de Abandono de Cliente':
 
 elif modelo_seleccionado == 'Pronóstico de Ventas':
     # Cargar el pipeline guardado para el modelo de ventas
-    pipeline_ventas = joblib.load('streamlit_app/models/pipeline_model.pkl')
+    pipeline_ventas = joblib.load('models/pipeline_model.pkl')
     
     
     st.header('Pronóstico de Ventas')
