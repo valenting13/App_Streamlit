@@ -7,7 +7,11 @@ from sklearn.preprocessing import LabelEncoder
 from xgboost import XGBRegressor
 import plotly.express as px
 
-
+# Definir colores
+COLOR_1 = '#D18205'  # Naranja
+COLOR_2 = '#20255D'  # Azul oscuro
+COLOR_3 = '#115EE3'  # Azul brillante
+COLOR_4 = '#24C2F1'  # Azul claro
 # Definir funciones personalizadas
 
 # 1. Función para crear características de fecha
@@ -75,8 +79,52 @@ def ewm_features(dataframe, alphas, lags):
 ###APLICACIÓN
 
 # Configurar la página para que se expanda en todo el ancho
-st.set_page_config(layout="wide")
+st.set_page_config(
+    page_title="Aplicación de Predicciones",
+    page_icon="images/growup.png",
+    layout="wide"
+)
 
+st.markdown(
+    f"""
+    <style>
+    /* Fondo de la aplicación */
+    .stApp {{
+        background-color: #FFFFFF;  /* Fondo blanco para mejor legibilidad */
+    }}
+    /* Fondo de la barra lateral */
+    .css-1d391kg .css-1d391kg {{
+        background-color: #FFFFFF;
+    }}
+    /* Títulos */
+    h1, h2, h3, h4, h5, h6 {{
+        color: {COLOR_2};  /* Títulos en azul oscuro */
+    }}
+    /* Texto */
+    .stMarkdown, .css-1fv8s86, .css-16huue1 {{
+        color: {COLOR_2};  /* Texto en azul oscuro */
+    }}
+    /* Etiquetas de widgets */
+    .css-145kmo2 {{
+        color: {COLOR_2};  /* Etiquetas en azul oscuro */
+    }}
+    /* Botones */
+    .stButton>button {{
+        background-color: {COLOR_1};  /* Botones en naranja */
+        color: white;
+    }}
+    /* Cuadros de entrada */
+    .stTextInput>div>div>input, .stNumberInput>div>div>input {{
+        color: {COLOR_2};  /* Texto de entrada en azul oscuro */
+    }}
+    /* Selectores */
+    .stSelectbox>div>div>div>div {{
+        color: {COLOR_2};
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 # Título de la aplicación
 st.title('Aplicación de Predicciones')
 
